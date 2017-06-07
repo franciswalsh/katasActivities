@@ -1,16 +1,15 @@
-fibArray = [1,2];
-
-var evenCounter = 0;
-
-for (var i = 1; i < 1000000; i++){
-  fibArray.push(fibArray[i]+fibArray[i-1]);
-  if (fibArray[i] % 2 === 0 && fibArray[i] <= 4000000){
-    evenCounter += fibArray[i];
+function fibEvenSum(num){
+  let fibArray = [1,2];
+  let evenCounter = 0;
+  let i = 1;
+  while ((fibArray[(fibArray.length)-1]) <= num){
+    fibArray.push(fibArray[i]+fibArray[i-1]);
+    if (fibArray[i] % 2 === 0) {
+      evenCounter += fibArray[i];
+    }
+    i++;
   }
-  if (fibArray[fibArray.length-1] >= 4000000){
-    break;
-  }
+  return evenCounter;
 }
 
-console.log(fibArray);
-console.log(evenCounter);
+console.log(fibEvenSum(4000000));
